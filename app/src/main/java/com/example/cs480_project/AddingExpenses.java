@@ -1,47 +1,28 @@
 package com.example.cs480_project;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Bundle;
-import android.os.Environment;
-import android.os.Parcelable;
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 public class AddingExpenses extends AppCompatActivity {
 
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
     private EditText editAmount, editDesc;
     private Spinner chooseType;
     private Button addReceipt, saveButton, cancelButton;
     private ImageButton chooseDate;
     private TextView dateTextView;
-    private DatePickerDialog datePickerDialog;
 
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
