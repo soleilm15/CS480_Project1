@@ -1,5 +1,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">CS480_Project</string>
+    <string name="receipt_image_description" />
 
     <string-array name="expense_types">
         <item>Choose Expense Type</item>
