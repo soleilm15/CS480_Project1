@@ -1,3 +1,19 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">CS480_Project</string>
+
+    <string-array name="expense_types">
+        <item>Choose Expense Type</item>
+        <item>Automotive</item>
+        <item>Bills / Utilities</item>
+        <item>Entertainment</item>
+        <item>Food / Drink</item>
+        <item>Gas</item>
+        <item>Groceries</item>
+        <item>Health / Wellness</item>
+        <item>Personal</item>
+        <item>Shopping</item>
+        <item>Travel</item>
+    </string-array>
+
+
 </resources>
