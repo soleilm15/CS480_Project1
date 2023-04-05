@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CS480_Project"
         tools:targetApi="31">
         <activity
+            android:name=".AddingBudget"
+            android:exported="false" />
+        <activity
             android:name=".AddingExpenses"
             android:exported="false" />
         <activity
