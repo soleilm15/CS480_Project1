@@ -23,7 +23,6 @@ public class AddingExpenses extends AppCompatActivity {
     private Button addReceipt, saveButton, cancelButton;
     private ImageButton chooseDate;
     private TextView dateTextView;
-
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
 
