@@ -1,9 +1,16 @@
 package com.example.cs480_project;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -12,8 +19,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class AddingExpenses extends AppCompatActivity {
@@ -25,6 +36,8 @@ public class AddingExpenses extends AppCompatActivity {
     private TextView dateTextView;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private String currentPhotoPath = null;
 
 
     @SuppressLint("MissingInflatedId")
@@ -103,10 +116,62 @@ public class AddingExpenses extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // complete later
+                // create an intent to select an image from the device's gallery
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                // create an intent to take a picture using the device's camera
+                Intent takePicture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                // create a file object to store the image captured by the camera
+                File photoFile = null;
+                try {
+                    photoFile = createImageFile();
+                    takePicture.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                } catch (IOException ex) {
+                    // error occurred while creating the file
+                    Log.e(TAG, "Error occurred while creating the File", ex);
+                }
+
+                // create a chooser intent to allow the user to select from either the gallery or camera
+                Intent chooserIntent = Intent.createChooser(pickPhoto, "Select Receipt");
+
+                // add the camera option to the chooser intent
+                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{takePicture});
+
+                // start the chooser Intent
+                startActivityForResult(chooserIntent, PICK_IMAGE_REQUEST);
+
 
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK) {
+            // Get the URI of the selected image
+            Uri selectedImageUri = data.getData();
+
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
+
 }
 
