@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -106,7 +107,26 @@ public class AddingExpenses extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // finish later
+                // get the expense data from the user input
+                int id = 1;
+                int budgetid = 1;
+                String expenseCategory = chooseType.toString();
+                double expenseAmount = Double.parseDouble(editAmount.getText().toString());
+                String expenseDate = dateTextView.getText().toString();
+                String expenseDesc = editDesc.getText().toString();
+                byte[] expenseReceipt = currentPhotoPath.getBytes();
+
+//                // create a new Expense object with the user's data
+//                Expense expense = new Expense(id, expenseAmount, expenseCategory, expenseDate, expenseDesc, expenseReceipt, budgetid );
+//
+//                // insert the new expense object into the database
+//                ExpenseTrackerDatabaseHelper db = new ExpenseTrackerDatabaseHelper(getApplicationContext());
+//                db.addExpense(expense);
+//
+//                // display a success message to the user
+//                Toast.makeText(getApplicationContext(), "Expense saved!", Toast.LENGTH_SHORT).show();
+
+                finish();
 
             }
         });

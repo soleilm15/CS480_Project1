@@ -1,28 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/addExpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Expense"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="72dp"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/expensesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Expenses"
+            android:textSize="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/budgetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Budget"
+            android:textSize="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/expensesTextView"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/expenseAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            android:textSize="40dp"
+            android:layout_marginLeft="70dp"
+            android:layout_below="@id/expensesTextView"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/budgetAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            android:textSize="40dp"
+            android:layout_marginLeft="60dp"
+            android:layout_toRightOf="@id/expensesTextView"
+            android:layout_below="@id/budgetTextView"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/listButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="expenses list ->"
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="560dp"
+            android:layout_marginLeft="200dp"
+            android:layout_below="@id/budgetTextView"
+            />
+
+    </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</LinearLayout>

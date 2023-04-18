@@ -7,12 +7,12 @@ public class Expense {
     private int id;
     private double amount;
     private String category;
-    private Date date;
+    private String date;
     private String description;
     private byte[] receiptImage;
     private int budgetId;
 
-    public Expense(int id, double amount, String category, Date date, String description, byte[] receiptImage, int budgetId) {
+    public Expense(int id, double amount, String category, String date, String description, byte[] receiptImage, int budgetId) {
         this.id = id;
         this.amount = amount;
         this.category = category;
@@ -56,10 +56,10 @@ public class Expense {
         this.category = category;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -124,7 +124,7 @@ public class ExpenseTrackerDatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(EXPENSE_AMOUNT, expense.getAmount());
         values.put(EXPENSE_CATEGORY, expense.getCategory());
-        values.put(EXPENSE_DATE, expense.getDate().getTime());
+        values.put(EXPENSE_DATE, expense.getDate());
         values.put(EXPENSE_DESCRIPTION, expense.getDescription());
         values.put(EXPENSE_RECEIPT, expense.getReceiptImage());
         values.put(EXPENSE_BUDGET_ID, expense.getBudgetId());
@@ -166,7 +166,7 @@ public class ExpenseTrackerDatabaseHelper extends SQLiteOpenHelper {
             int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
             double amount = cursor.getDouble(cursor.getColumnIndexOrThrow("amount"));
             String categoryStr = cursor.getString(cursor.getColumnIndexOrThrow("category"));
-            Date date = new Date(cursor.getLong(cursor.getColumnIndexOrThrow("date")));
+            String date = String.valueOf(cursor.getLong(cursor.getColumnIndexOrThrow("date")));
             String description = cursor.getString(cursor.getColumnIndexOrThrow("description"));
             byte[] receiptImage = cursor.getBlob(cursor.getColumnIndexOrThrow("receipt_image"));
             int budgetId = cursor.getInt(cursor.getColumnIndexOrThrow("budget_id"));
