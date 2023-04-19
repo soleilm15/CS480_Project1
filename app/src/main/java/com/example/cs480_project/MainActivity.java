@@ -54,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent); // adds a new expense
                 return true;
 
+            case R.id.updateBudget:
+                Intent intent2 = new Intent(MainActivity.this, AddingBudget.class);
+                startActivity(intent2);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

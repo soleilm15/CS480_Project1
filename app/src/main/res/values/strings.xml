@@ -16,5 +16,35 @@
         <item>Travel</item>
     </string-array>
 
+    <string-array name="budget_types">
+        <item>Choose Budget Type</item>
+        <item>Automotive</item>
+        <item>Bills / Utilities</item>
+        <item>Entertainment</item>
+        <item>Food / Drink</item>
+        <item>Gas</item>
+        <item>Groceries</item>
+        <item>Health / Wellness</item>
+        <item>Personal</item>
+        <item>Shopping</item>
+        <item>Travel</item>
+    </string-array>
+
+    <string-array name="budget_duration">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+
+    <string-array name="once_dropdown">
+        <item>Halfway through duration</item>
+        <item>Full through duration</item>
+        <item>Halfway through budget</item>
+        <item>Full through budget</item>
+        <item>Every expense</item>
+    </string-array>
+
+
+
 
 </resources>
