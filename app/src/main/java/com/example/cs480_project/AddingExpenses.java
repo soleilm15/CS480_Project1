@@ -108,13 +108,13 @@ public class AddingExpenses extends AppCompatActivity {
             public void onClick(View v) {
 
                 // get the expense data from the user input
-                int id = 1;
-                int budgetid = 1;
-                String expenseCategory = chooseType.toString();
-                double expenseAmount = Double.parseDouble(editAmount.getText().toString());
-                String expenseDate = dateTextView.getText().toString();
-                String expenseDesc = editDesc.getText().toString();
-                byte[] expenseReceipt = currentPhotoPath.getBytes();
+//                int id = 1;
+//                int budgetid = 1;
+//                String expenseCategory = chooseType.toString();
+//                double expenseAmount = Double.parseDouble(editAmount.getText().toString());
+//                String expenseDate = dateTextView.getText().toString();
+//                String expenseDesc = editDesc.getText().toString();
+//                byte[] expenseReceipt = currentPhotoPath.getBytes();
 
 //                // create a new Expense object with the user's data
 //                Expense expense = new Expense(id, expenseAmount, expenseCategory, expenseDate, expenseDesc, expenseReceipt, budgetid );
